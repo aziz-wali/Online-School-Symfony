@@ -18,9 +18,9 @@ class CategoryController extends AbstractController
     /**
      * @Route("/", name="index")
      */
-    public function index(CategoryRepository $categoryRepository)
+    public function index()
     {
-
+         //get all Categories from the Entity Category
         $cats =$this->getDoctrine()->getRepository('App\Entity\Category')->findAll();
         return $this->render('category/index.html.twig', [
             'cats' => $cats
@@ -32,6 +32,8 @@ class CategoryController extends AbstractController
      */
     public function create(Request $request)
     {
+        // create new category
+
         $category = new Category();
         $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
@@ -52,6 +54,7 @@ class CategoryController extends AbstractController
          */
         public function edit(Request $request, $id)
          {
+             // edit the category according to id
           $category= $this->getDoctrine()->getRepository(Category::class)->find($id);
           $form=$this->createForm(CategoryType::class,$category);
           $form->handleRequest($request);
@@ -74,6 +77,7 @@ class CategoryController extends AbstractController
 
        public function remove($id)
     {
+        //remove the category from DB
         $category=$this->getDoctrine()->getRepository(Category::class)->find($id);
         $em=$this->getDoctrine()->getManager();
         $em->remove($category);

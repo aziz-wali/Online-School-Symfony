@@ -19,7 +19,7 @@ class TagsController extends AbstractController
      * @Route("/", name="index")
      */
     public function index(TagsRepository $tagsRepository)
-    {
+    {  //Show all Tags
         $tags=$this->getDoctrine()->getRepository(Tags::class)->findAll();
         return $this->render('tags/index.html.twig', [
             'tags' => $tags,
@@ -29,7 +29,7 @@ class TagsController extends AbstractController
      * @Route("/create",name="create")
      */
     public  function create(Request $request){
-
+        //Create new Tag
         $tags=new Tags();
         $form= $this->createForm(TagsType::class,$tags);
         $form->handleRequest($request);
@@ -48,7 +48,7 @@ class TagsController extends AbstractController
      * @Route("/edit/{id}",name="edit")
      */
     public function edit($id,Request $request)
-    {
+    {  //Edit the tag according to the Id
         $tags=$this->getDoctrine()->getRepository(Tags::class)->find($id);
         $form=$this->createForm(TagsType::class,$tags);
         $form->handleRequest($request);
@@ -66,6 +66,7 @@ class TagsController extends AbstractController
     /**
      * @Route("/remove/{id}",name="remove")
      */
+    //Remove the Tag according to the Id
     public function remove($id){
         $tags=$this->getDoctrine()->getRepository(Tags::class)->find($id);
         $em=$this->getDoctrine()->getManager();

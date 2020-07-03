@@ -19,7 +19,8 @@ class TemplateController extends AbstractController
      * @Route("/", name="template")
      */
     public function index()
-    {
+    { //this function usted to display the Home page that user will see.
+
         if(isset($_GET['limit'])){
             $limit=$_GET['limit'];
         }else{
@@ -43,7 +44,9 @@ class TemplateController extends AbstractController
     /**
      * @Route("/single/{id}", name="single")
      */
-    public function show($id,PostRepository $postRepository){
+    public function show($id,PostRepository $postRepository)
+    {
+    //this function usted to display One Video or Post according to the id
         $video=$postRepository->find($id);
         return $this->render('template/single.html.twig',[
             'video'=>$video
@@ -54,6 +57,8 @@ class TemplateController extends AbstractController
      */
     public function category($id,CategoryRepository $categoryRepository,PostRepository $postRepository)
     {
+        //to get all posts or video that have the same category
+
         $category=$categoryRepository->find($id);
         $q=" SELECT * FROM post WHERE category_id=$id";
         $stmt= $this->getDoctrine()->getConnection()->prepare($q);
@@ -72,6 +77,7 @@ class TemplateController extends AbstractController
      */
     public function tag($id)
     {
+        //to get all posts or video that have the same tag
         $ta=$this->getDoctrine()->getRepository(Tags::class)->find($id);
         $posts = $this->getDoctrine()->getRepository(Post::class)
             ->findAll();
@@ -87,12 +93,14 @@ class TemplateController extends AbstractController
      */
     public function about()
     {
+        //display about page
         return $this->render('template/about.html.twig');
     }
     /**
      * @Route("/contact",name="contact")
      */
     public function contact(){
+        //show contact page
         return $this->render('template/contact.html.twig');
     }
 

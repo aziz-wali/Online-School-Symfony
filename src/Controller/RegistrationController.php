@@ -19,6 +19,7 @@ class RegistrationController extends AbstractController
      */
     public function index(Request $request,UserPasswordEncoderInterface $passwordEncoder)
     {
+        //this function usted to register a new user
 
         $form = $this->createFormBuilder()
             ->add('email')

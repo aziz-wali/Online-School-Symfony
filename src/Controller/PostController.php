@@ -20,6 +20,8 @@ class PostController extends AbstractController
      */
     public function index(PostRepository $postRepository)
     {
+        //this function used to display all posts from DB in the Template
+
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $videos=$postRepository->findAll();
 
@@ -34,7 +36,7 @@ class PostController extends AbstractController
      */
     public function create(Request $request)
     {
-
+  //Create new video or post
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $post= new Post();
         $form=$this->createForm(PostType::class,$post);
@@ -48,10 +50,12 @@ class PostController extends AbstractController
             $file=$request->files->get('post')['image'];
             if($file){
                 $filename=md5(uniqid()).'.' .$file->guessClientExtension();
+
                 $file->move(
                     $this->getParameter('uploads_dir'),
                     $filename
                 );
+
                 $post->setImage($filename);
                 $em->persist($post);
                 $em->flush();
@@ -72,6 +76,7 @@ class PostController extends AbstractController
      */
     public function edit($id,Request $request)
     {
+        //Edit post or Video according to the Id
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         $post = $this->getDoctrine()->getRepository(Post::class)->find($id);
@@ -105,7 +110,7 @@ class PostController extends AbstractController
      * @Route("/remove/{id}", name="remove")
      */
     public function remove(Post $post)
-    {
+    {  //remove post or Video according to the Id
 
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $em = $this->getDoctrine()->getManager();
@@ -117,6 +122,8 @@ class PostController extends AbstractController
     /**
      * @Route("/show/{id}", name="show")
      */
+
+    //Show the  post or Video according to the Id
     public function show($id,PostRepository $postRepository){
         $video=$postRepository->find($id);
         return $this->render('post/show.html.twig',[
