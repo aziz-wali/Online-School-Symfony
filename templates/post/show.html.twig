@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+    <h2>{{ video.title }}</h2>
+    <span>{{ video.category }}</span>
+    <video height="250" width="420" controls>
+    <source src="/uploads/{{ video.image }}" type="video/mp4">
+    </video>
+    <p>{{ video.content }}</p>
+{% endblock %}

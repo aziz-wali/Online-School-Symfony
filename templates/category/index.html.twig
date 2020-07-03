@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+    <div class="container">
+<h2 class="text-center">Categeories </h2>
+        <div class="categories">
+            <div class="head">
+        <div class="row">
+
+            <div class="col-lg-2">
+                <b>ID</b>
+            </div>
+
+            <div class="col-lg-3">
+             <b>Name</b>
+            </div>
+            <div class="col-lg-3">
+               <b> Edit</b>
+            </div>
+            <div class="col-lg-3">
+               <b>Delete</b>
+            </div>
+
+
+        </div>
+            </div>
+
+{% for category in cats %}
+    <div class="row">
+    <div class="col-lg-2">{{ category.id }}</div>
+    <div class="col-lg-3"> {{category.name}} </div>
+    <div class="col-lg-3"><a href="{{ path('categories.edit',{id:category.id}) }}" class="btn btn-outline-primary btn-sm">Edit</a></div>
+    <div class="col-lg-3"> <a href="{{ path('categories.remove',{id:category.id}) }}" class="btn btn-outline-danger btn-sm">Delete</a></div>
+    </div>
+{% endfor %}
+
+        </div>
+    </div>
+
+{% endblock %}

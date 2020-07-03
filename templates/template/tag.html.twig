@@ -1,0 +1,53 @@
+{%  include '/includes/header.html.twig' %}
+
+
+
+{% block body %}
+<div class="container">
+<h2>{{ tag.name }}</h2>
+    <div class="row">
+
+
+            {% for video in posts %}
+                {% for t in video.tags %}
+                   {% if t.id == tag.id %}
+
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <video width="330" height="200" controls>
+                            <source src="/uploads/{{video.image}}" type="video/mp4">
+                        </video>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="{{ path('single',{id:video.id}) }}">{{ video.title }}</a>
+                            </h4>
+
+                            <p class="card-text" >{{ video.content|slice(0,70)}}</p>
+
+                        </div>
+                        <div class="card-footer">
+
+                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        </div>
+                    </div>
+                </div>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+</div>
+{% endblock %}
+
+{% include '/includes/footer.html.twig' %}

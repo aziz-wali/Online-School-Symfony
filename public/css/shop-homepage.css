@@ -1,0 +1,170 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/templates/shop-homepage)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+body {
+ padding-top: 40px;
+  background-color: #eee;
+  font-family: Tahoma,Arial;
+}
+.navbar{
+  background-color: #2ecc71 !important;
+}
+.navbar-nav .btn{
+  background-color:#27ae60;
+  padding:1px 4px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+.carousel .carousel-item img{
+  width: 100%;
+  height:520px;
+}
+.carousel{
+  margin-bottom: 100px;
+}
+.list-group-item:hover{
+  background-color:#2ecc71 ;
+  text-decoration: none;
+  color: #FFF;
+}
+
+
+.single{
+  margin: 40px auto;
+
+}
+.single .card .card-content{
+  padding: 80px;
+
+}
+.single .card .card-content .lehrer{
+  margin-right: 50px;
+}
+
+.footer{
+  padding-top:60px;
+  background-color:#34495e;
+
+  color: #FFF;
+}
+.footer i{
+  padding: 5px;
+}
+.owl-carousel{
+  margin-bottom: 50px;
+padding-left: 85px;
+
+  padding-top: 33px;
+
+}
+.owl{
+  background-color: #FFF;
+}
+.owl-carousel .item {
+  height: 270px;
+  width: 190px;
+  perspective: 150px;
+  overflow: hidden;
+
+
+}
+.owl-carousel .item img{
+  transition: all .8s linear;
+}
+.owl-carousel .item:hover img{
+
+  transform: translateZ(10px) rotate(0deg);
+
+
+}
+.owl-carousel .item .name{
+  background-color: #2ecc71;
+  color: #FFF;
+  width: 100%;
+  padding: 3px 10px;
+}
+.owl-carousel .item .name a{
+  text-decoration: none;
+  color: #FFF;
+}
+.card video{
+  margin-left: 10px;
+
+}
+
+.card-footer .card-category a{
+  text-decoration: none;
+  background-color: #2ecc71;
+  padding: 3px 10px;
+  color: #FFF;
+}
+
+.card-footer .text-muted{
+  font-size: 16px;
+  : #ff3f4d;
+}
+.card-footer .text-muted i{
+  color: #e0a800;
+}
+.logged-user{
+  animation: an 4s infinite;
+  border: 1px solid #576574;
+}
+@keyframes an {
+  0%{border-left-color: red}
+  25%{border-bottom-color: green}
+50%{border-right-color:purple}
+75%{border-top-color: white}
+}
+.features i{
+  color: #FFF;
+  background-color: #2ecc71;
+  padding: 7px;
+  border: 1px solid #2ecc71;
+  border-radius: 50%;
+}
+.social-media{
+  background-color: #FFF;
+}
+.icons{
+  display: flex;
+  justify-content:space-around;
+  margin:20px 0 70px 0;
+  background-color: #FFF;
+  padding: 30px 20px;
+}
+.icons i{
+  color: #CCC;
+  perspective: 150px;
+  transition: all .7s ease-in-out;
+}
+.icons i:hover{
+  color: #2ecc71;
+  transform: translateZ(10px) rotate(3deg) scale(1.3);
+}
+.about{
+  margin-top: 50px;
+}
+.about .col-lg-6{
+  padding: 10px 30px 10px 40px;
+}
+.pagination a{
+  margin-left: 5px;
+}
+.contact{
+  display: flex;
+  justify-content: space-around;
+}
+.contact>div{
+  width: 50%;
+  padding: 25px;
+}
+.contact .contact-form input{
+  margin-bottom: 12px;
+}
+.contact .contact-form textarea{
+  margin-bottom: 12px;
+  height: 120px;
+}

@@ -1,0 +1,139 @@
+body{
+    background-color: #eee;
+}
+.posts img{
+    height: 40px;
+    width: 40px;
+}
+.container .categories,
+.container .tags,
+.container .posts{
+    margin: 50px auto;
+
+}
+.container .categories .row>div,
+.container .posts .row>div,
+.container .tags .row>div{
+    padding: 13px;
+    border: 1px solid #FFF;
+}
+.container .categories .head .row>div,
+.container .posts .head .row>div,
+.container .tags .head .row>div{
+    background-color: #CCC;
+}
+.container .categories .head{
+
+}
+.container .category,
+.container .post,
+.container .tag{
+    width: 433px;
+    margin: 50px auto;
+}
+.home ul{
+    width: 220px;
+    box-shadow: 10px 10px #CCC;
+    background-color: #FFF;
+}
+.menu{
+    width: 220px;
+    box-shadow: 10px 10px #CCC;
+    background-color: #FFF;
+}
+.home ul li{
+    padding: 14px 20px;
+
+    border-bottom: 1px solid #CCC;
+}
+.home ul li:first-child{
+    border-top: 1px solid #CCC;
+}
+.home ul li a{
+    margin-left: 10px;
+}
+.home ul li i{
+    font-size: 22px;
+}
+.home ul li:hover{
+    background-color: #EEE;
+}
+.home .feature{
+    margin-top: 30px;
+    width: 300px;
+    height: 100px;
+    background-color: #FFF;
+    margin-bottom: 50px;
+}
+.home .feature .zahl{
+   padding: 12px;
+   box-shadow: 10px 10px #CCC;
+    color: #FFF;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+.home .feature .zahl span{
+    font-size: 33px;
+    margin-left: 10px;
+    margin-top: 10px;
+
+}
+.home .feature >span{
+    margin: 22px 30px;
+    font-size: 24px;
+    color: #767676;
+}
+.home .feature .blue{
+    background-color: #5eb5e0;
+}
+.home .feature .red{
+    background-color: #e74c3c;
+}
+
+.home .feature .green{
+    background-color: #2ecc71;
+}
+
+.home .feature .violet{
+    background-color: #9b59b6;
+}
+.home .card img{
+    width: 55px;
+    height: 55px;
+}
+.home .menu > img{
+    width: 55px;
+    height: 55px;
+    border-radius:50%;
+    margin: 10px 30px;
+}
+.home .menu h6{
+    margin:10px 0 30px 30px;
+}
+.home .menu h4{
+   padding: 10px 10px;
+    background-color: #5eb5e0;
+    color: #FFF;
+}
+.users table tr td {
+    padding: 10px 20px;
+
+}
+.home table tr:first-child{
+    color: #767676;
+}
+.users table img{
+    width: 60px;
+    height: 60px;
+}
+.home .card{
+    margin-right: 130px;
+    margin-bottom: 33px;
+}
+.home .menu ul li a{
+    text-decoration: none;
+    color: #1a1a1a;
+}
+/******TEmplate------*/
+

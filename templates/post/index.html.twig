@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+    <div class="container">
+        <h2 class="text-center">Videos Anteil</h2>
+        <div class="posts">
+
+            <div class="head">
+        <div class="row">
+            <div class="col-lg-1"><b>ID</b></div>
+            <div class="col-lg-2"> <b>Überschrift</b></div>
+            <div class="col-lg-2"><b>Kategorie</b></div>
+            <div class="col-lg-2"><b>Tags</b></div>
+            <div class="col-lg-2"><b>Datum</b></div>
+            <div class="col-lg-1"><b>Video</b></div>
+            <div class="col-lg-1"><b>Bearbeiten</b></div>
+            <div class="col-lg-1"><b>Löschen</b></div>
+        </div>
+            </div>
+
+{% for video in videos %}
+    <div class="row">
+        <div class="col-lg-1">{{ video.id }}</div>
+        <div class="col-lg-2"><a href="{{path('post.show',{id:video.id})}}">{{ video.title }}</a></div>
+        <div class="col-lg-2"><em>{{ video.category }}</em></div>
+        <div class="col-lg-2"><em> {% for tag in video.tags %} {{ tag.name}} {% endfor%} </em></div>
+        <div class="col-lg-2">{{ video.d|date('Y-m-d') }}</div>
+        <div class="col-lg-1">
+            <video width="80" height="50" controls>
+                <source src="/uploads/{{video.image }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="col-lg-1"><a class="btn btn-outline-primary btn-sm" href="{{ path('post.edit',{id:video.id}) }}"> edit</a></div>
+        <div class="col-lg-1"> <a class="btn btn-outline-danger btn-sm" href="{{ path('post.remove',{id:video.id}) }}">Del</a></div>
+
+    </div>
+    {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2>Anteil Der Schüler</h2>
+        <div class="table-responsive users">
+    <table class="table-bordered main-table">
+        <tr style="background-color: #CCC">
+            <td><b>ID</b></td>
+            <td><b>Name</b></td>
+            <td><b>Email</b></td>
+            <td><b>Alter</b></td>
+            <td><b>Adresse</b></td>
+            <td><b>Datum</b></td>
+            <td><b>Bild</b></td>
+            <td><b>Schauen</b></td>
+            <td><b>Löschen</b></td>
+
+
+        </tr>
+        {% for user in users %}
+
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.age }}</td>
+                <td>{{ user.anschrift }}</td>
+                <td>{{ user.datum|date('Y-m-d') }}</td>
+                <td><img src="/uploads/{{ user.avatar }}"/></td>
+                <td><a href="{{ path('user.edit',{id:user.id}) }}" class="btn btn-outline-primary btn-sm">Edit</a> </td>
+                <td><a href="{{ path('user.remove',{id:user.id}) }}" class="btn btn-outline-danger btn-sm">Delete</a> </td>
+            </tr>
+
+        {% endfor %}
+    </table>
+        </div>
+    </div>
+{% endblock %}

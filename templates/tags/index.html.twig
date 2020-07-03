@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TagsController!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2 class="text-center"><b>Tags</b></h2>
+        <div class="tags">
+       <div class="head">
+        <div class="row">
+
+      <div class="col-lg-2"><b> ID</b></div>
+              <div class="col-lg-3"> <b>Tags Name</b></div>
+              <div class="col-lg-3">  <b>Edit</b></div>
+            <div class="col-lg-3">  <b>Delete</b></div>
+        </div>
+       </div>
+
+{% for tag in tags %}
+
+    <div class="row">
+        <div class="col-lg-2"> {{ tag.id }}</div>
+        <div class="col-lg-3">{{ tag.name }}</div>
+        <div class="col-lg-3"> <a href="{{ path('tags.edit',{id:tag.id}) }}" class="btn btn-outline-primary btn-sm">edit</a></div>
+        <div class="col-lg-3"> <a href="{{ path('tags.remove',{id:tag.id}) }}" class="btn btn-outline-danger btn-sm">del</a>
+        </div>
+
+
+   </div>
+
+    {% endfor %}
+        </div>
+    </div>
+{% endblock %}

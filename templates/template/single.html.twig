@@ -1,0 +1,23 @@
+{%  include '/includes/header.html.twig' %}
+
+
+
+{% block body %}
+    <div class="container single">
+    <div class="card  bg-light " >
+    <div class="card-header"> <h2>{{ video.title }}</h2></div>
+        <div class="card-content">
+
+    <span>{{ video.d|date('Y-m-d') }}</span>
+            <span class=" lehrer float-right"><a href="#">Hr.Schmidt</a></span></span>
+    <video width="900" height="500"  controls>
+    <source src="/uploads/{{ video.image }}" type="video/mp4">
+    </video>
+        <a href="#"> {{ video.category }}</a>
+    <p>{{ video.content }}</p>
+    </div>
+
+    </div>
+    </div>
+{% endblock %}
+{%  include '/includes/footer.html.twig' %}
