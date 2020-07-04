@@ -13,6 +13,9 @@ use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
+
 class TemplateController extends AbstractController
 {
     /**
@@ -60,18 +63,19 @@ class TemplateController extends AbstractController
         //to get all posts or video that have the same category
 
         $category=$categoryRepository->find($id);
-        $q=" SELECT * FROM post WHERE category_id=$id";
-        $stmt= $this->getDoctrine()->getConnection()->prepare($q);
-        $stmt->execute();
-        $videos=$stmt->fetchAll();
-       //$videos=$this->getDoctrine()->getRepository(Post::class)
-       // ->findBy(['category_id'=>$id],['id'=>'DESC']);
-
+        $em=$this->getDoctrine()->getManager();
+        $videos=$em->getRepository(Post::class)->createQueryBuilder('p')
+            ->andWhere('p.category = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult();
         return $this->render('template/category.html.twig',[
             'category'=>$category,
             'videos'=>$videos
         ]);
     }
+
+
     /**
      * @Route("tag/{id}",name="tag")
      */
@@ -81,9 +85,7 @@ class TemplateController extends AbstractController
         $ta=$this->getDoctrine()->getRepository(Tags::class)->find($id);
         $posts = $this->getDoctrine()->getRepository(Post::class)
             ->findAll();
-
-
-        return $this->render('template/tag.html.twig',[
+ return $this->render('template/tag.html.twig',[
                 'tag'=>$ta,
                  'posts'=>$posts
         ]);
