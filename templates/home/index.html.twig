@@ -12,108 +12,109 @@
                         <h4>Admin Zone</h4>
                         <img src="uploads/{{ app.user.avatar }}">
                         <h6>{{ app.user.name }}</h6>
-    <ul class="list-unstyled">
-       <li><i class="fas fa-stream"></i> <a href="{{ path('post.index') }}">Posts</a></li>
-        <li><i class="fab fa-buffer"></i> <a href="{{ path('categories.index') }}"> Kategorien</a></li>
-        <li><i class="far fa-file-alt"></i> <a href="{{ path('user.index') }}">Alle Schüler</a></li>
-        <li><i class="fas fa-mobile-alt"></i> <a href="{{ path('user.lehrer') }}">Alle Lehrer</a></li>
-        <li><i class="fas fa-tags"></i> <a href="{{ path('tags.index') }}">Tags</a></li>
-        <li><i class="fas fa-info-circle"></i> <a>Mehr Erfahren</a></li>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-stream"></i> <a href="{{ path('post.index') }}">Posts</a></li>
+                                    <li><i class="fab fa-buffer"></i> <a href="{{ path('categories.index') }}"> Kategorien</a></li>
+                                    <li><i class="far fa-file-alt"></i> <a href="{{ path('user.index') }}">Alle Schüler</a></li>
+                                    <li><i class="fas fa-mobile-alt"></i> <a href="{{ path('user.lehrer') }}">Alle Lehrer</a></li>
+                                    <li><i class="fas fa-tags"></i> <a href="{{ path('tags.index') }}">Tags</a></li>
+                                    <li><i class="fas fa-info-circle"></i> <a>Mehr Erfahren</a></li>
 
-       <li><i class="far fa-calendar-times"></i> <a>Kalender</a></li>
-        <li><i class="fas fa-camera-retro"></i><a>Gallery</a> </li>
+                                <li><i class="far fa-calendar-times"></i> <a>Kalender</a></li>
+                                    <li><i class="fas fa-camera-retro"></i><a>Gallery</a> </li>
 
 
-    </ul>
+                            </ul>
 
-        </div>
+                    </div>
             </div>
-    <div class="col-lg-9">
+            <div class="col-lg-9">
 
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="feature">
-                    <div class="zahl blue"><span>{{ count }}</span></div>
-                    <span class="float-right"><i class="far fa-play-circle"></i> Videos</span>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="feature">
+                            <div class="zahl blue"><span>{{ count }}</span></div>
+                            <span class="float-right"><i class="far fa-play-circle"></i> Videos</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="feature">
+                            <div class="zahl red"><span>57</span></div>
+                            <span class="float-right"><i class="far fa-comment-alt"></i>
+                                Kommentare</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="feature">
+                            <div class="zahl green"><span>{{ lehrer }}</span></div>
+                            <span class="float-right"><i class="fas fa-chalkboard-teacher"></i> Lehrer</span>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="feature ">
+                            <div class="zahl violet"><span>{{ schuler }}</span></div>
+                            <span class="float-right"><i class="fas fa-user-graduate"></i> Schüler</span>
+                        </div>
+                    </div>
                 </div>
-             </div>
-            <div class="col-lg-6">
-                <div class="feature">
-                    <div class="zahl red"><span>57</span></div>
-                    <span class="float-right"><i class="far fa-comment-alt"></i>
-                        Kommentare</span>
+
+                <div class="card  bg-light ">
+                    <div class="card-header"><h5>Neue Lehrer</h5></div>
+                    <table class="table-bordered">
+                        <tr>
+                            <td>&nbsp;<b>ID</b></td>
+                            <td><b>Email</b></td>
+                            <td><b>Datum</b></td>
+                            <td><b>Bild</b></td>
+                            <td><b>Schauen</b></td>
+                            <td><b>Löschen</b></td>
+
+                        </tr>
+                        {% for user in neuelehrer %}
+
+                            <tr>
+                                <td>&nbsp;{{ user.id }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.datum|date('Y-m-d') }}</td>
+                                <td><img src="uploads/{{ user.avatar }}"/></td>
+                                <td><a class="btn btn-outline-primary btn-sm">show</a> </td>
+                                <td><a class="btn btn-outline-danger btn-sm">Delete</a> </td>
+                            </tr>
+
+                        {% endfor %}
+                    </table>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="feature">
-                    <div class="zahl green"><span>{{ lehrer }}</span></div>
-                    <span class="float-right"><i class="fas fa-chalkboard-teacher"></i> Lehrer</span>
-                </div>
-
-            </div>
-            <div class="col-lg-6">
-                <div class="feature ">
-                    <div class="zahl violet"><span>{{ schuler }}</span></div>
-                    <span class="float-right"><i class="fas fa-user-graduate"></i> Schüler</span>
-                </div>
-            </div>
-        </div>
-        <div class="card  bg-light ">
-            <div class="card-header"><h5>Neue Lehrer</h5></div>
-            <table class="table-bordered">
-                <tr>
-                    <td><b>ID</b></td>
-                    <td><b>Email</b></td>
-                    <td><b>Datum</b></td>
-                    <td><b>Bild</b></td>
-                    <td><b>Schauen</b></td>
-                    <td><b>Löschen</b></td>
-
-                </tr>
-                {% for user in neuelehrer %}
-
-                    <tr>
-                        <td>{{ user.id }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.datum|date('Y-m-d') }}</td>
-                        <td><img src="uploads/{{ user.avatar }}"/></td>
-                        <td><a class="btn btn-outline-primary btn-sm">show</a> </td>
-                        <td><a class="btn btn-outline-danger btn-sm">Delete</a> </td>
-                    </tr>
-
-                {% endfor %}
-            </table>
-        </div>
         <div class="card  bg-light ">
             <div class="card-header"><h5>Neue Schüler</h5></div>
-            <table class="table-bordered">
-                <tr>
-                    <td><b>ID</b></td>
-                    <td><b>Email</b></td>
-                    <td><b>Datum</b></td>
-                    <td><b>Bild</b></td>
-                    <td><b>Schauen</b></td>
-                    <td><b>Löschen</b></td>
-
-                </tr>
-                {% for user in users %}
-
+                <table class="table-bordered">
                     <tr>
-                        <td>{{ user.id }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.datum|date('Y-m-d') }}</td>
-                        <td><img src="uploads/{{ user.avatar }}"/></td>
-                        <td><a class="btn btn-outline-primary btn-sm">show</a> </td>
-                        <td><a class="btn btn-outline-danger btn-sm">Delete</a> </td>
+                        <td>&nbsp;<b>ID</b></td>
+                        <td><b>Email</b></td>
+                        <td><b>Datum</b></td>
+                        <td><b>Bild</b></td>
+                        <td><b>Schauen</b></td>
+                        <td><b>Löschen</b></td>
+
                     </tr>
+                    {% for user in users %}
 
-                {% endfor %}
-            </table>
-        </div>
+                        <tr>
+                            <td>&nbsp;{{ user.id }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.datum|date('Y-m-d') }}</td>
+                            <td><img src="uploads/{{ user.avatar }}"/></td>
+                            <td><a class="btn btn-outline-primary btn-sm">show</a> </td>
+                            <td><a class="btn btn-outline-danger btn-sm">Delete</a> </td>
+                        </tr>
 
-    </div>
+                    {% endfor %}
+                </table>
             </div>
-    </div>
+
+        </div>
+     </div>
+</div>
 
 
 

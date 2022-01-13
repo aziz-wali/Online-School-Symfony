@@ -60,7 +60,7 @@ class TemplateController extends AbstractController
      */
     public function category($id,CategoryRepository $categoryRepository,PostRepository $postRepository)
     {
-        //to get all posts or video that have the same category
+        //to get all posts or videos that have the same category
 
         $category=$categoryRepository->find($id);
         $em=$this->getDoctrine()->getManager();
@@ -85,7 +85,7 @@ class TemplateController extends AbstractController
         $ta=$this->getDoctrine()->getRepository(Tags::class)->find($id);
         $posts = $this->getDoctrine()->getRepository(Post::class)
             ->findAll();
- return $this->render('template/tag.html.twig',[
+                return $this->render('template/tag.html.twig',[
                 'tag'=>$ta,
                  'posts'=>$posts
         ]);
@@ -105,6 +105,22 @@ class TemplateController extends AbstractController
         //show contact page
         return $this->render('template/contact.html.twig');
     }
+    /**
+     * @Route("/dashboard",name="dashboard")
+     */
+    public function dashboard(){
+        //show dashboard page
+        return $this->render('base.html.twig');
+    }
+ 
+     /**
+     * @Route("/lehrer",name="lehrer")
+     */
+    public function lehrer(){
+        //show lehrer page
+        return $this->render('template/lehrer.html.twig');
+    }
+
 
 
 

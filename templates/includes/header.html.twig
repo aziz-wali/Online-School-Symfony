@@ -17,7 +17,7 @@
     <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{ asset('/css/shop-homepage.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('/fontawesome-free-5.13.0-web/css/all.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('OwlCarousel2-2.3.4 (1)/OwlCarousel2-2.3.4/dist/assets/owl.carousel.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('OwlCarousel2-2.3.4 (1)/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css')}}">
@@ -33,12 +33,12 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark  fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="{{ path('template') }}">Max-Plank</a>
+        <a class="navbar-brand" href="{{ path('template') }}">Max-Planck Gymnasium</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav x ml-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ path('template') }}">
                         <i class="fas fa-home"></i>
@@ -68,8 +68,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle logged-user"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ app.user.name }}</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ path('app_logout') }}">Ausloggen</a>
+                        
                             <a class="dropdown-item" href="{{ path('home') }}">Dashboard</a>
+                            <a class="dropdown-item" href="{{ path('app_logout') }}">Ausloggen</a>
                         </div>
                     </li>
 

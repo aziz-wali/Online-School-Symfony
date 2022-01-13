@@ -25,6 +25,13 @@ body{
 .container .categories .head{
 
 }
+.edit{
+    margin:50px auto;
+    width:420px;
+}
+td:hover{
+    background-color: #DDD;
+  }
 .container .category,
 .container .post,
 .container .tag{
